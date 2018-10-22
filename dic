@@ -1,0 +1,23 @@
+#!/bin/zsh
+
+word=$1
+
+file="${HOME}/Documents/UNKOWN_WORDS.md"  # replace with your own path
+words_file="${HOME}/Documents/WORDS.md"
+
+show_save()
+{
+	 echo "- $word" >> ${file}
+	 echo "$word" >> ${words_file}
+         echo "\n\`\`\`" >> ${file}
+	 curl -s -X GET "http://xtk.azurewebsites.net/BingDictService.aspx?Samples=false&Word=$word" | json defs | json -a pos def | tee -a ${file}
+         echo "\`\`\`\n" >> ${file}
+}
+
+
+if [[ -n "$word" ]]; then
+	show_save
+else
+	read word
+	show_save
+fi
