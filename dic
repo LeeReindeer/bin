@@ -7,11 +7,11 @@ words_file="${HOME}/Documents/WORDS.md"
 
 show_save()
 {
-	 echo "- $word" >> ${file}
-	 echo "$word" >> ${words_file}
-         echo "\n\`\`\`" >> ${file}
-	 curl -s -X GET "http://xtk.azurewebsites.net/BingDictService.aspx?Samples=false&Word=$word" | json defs | json -a pos def | tee -a ${file}
-         echo "\`\`\`\n" >> ${file}
+  echo "- $word" >> ${file}
+  echo "$word" >> ${words_file}
+  echo "\n\`\`\`" >> ${file}
+  curl -s -X GET "http://xtk.azurewebsites.net/BingDictService.aspx?Samples=false&Word=$word" | json defs | json -a pos def | tee -a ${file}
+  echo "\`\`\`\n" >> ${file}
 }
 
 
