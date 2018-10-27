@@ -1,0 +1,11 @@
+#!/bin/zsh
+
+suffix=$1
+ext=$2
+
+if [[ -n "$ext" ]];then
+  rename -v "s/^(.*)\.(${ext})$/\$1${suffix}.\$2/" *.${ext}
+else
+  echo "Must specify file ext."
+fi
+

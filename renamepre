@@ -1,0 +1,13 @@
+#!/bin/zsh
+
+prefix=$1
+ext=$2
+
+#echo "${prefix} with ${files}"
+
+if [[ -n "$ext" ]];then
+  rename -v "s/^/${prefix}/" *.${ext}
+else
+  rename -v "s/^/${prefix}/" *
+fi
+
