@@ -1,0 +1,10 @@
+#!/bin/zsh
+
+ip=$1
+
+if [[ -n "$ip" ]]; then
+  curl ip.cn\?ip=${ip}
+else
+  curl ip.cn
+fi
+
